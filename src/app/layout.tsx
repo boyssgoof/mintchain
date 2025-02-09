@@ -67,7 +67,7 @@ function RootLayout({ children }: { children: React.ReactNode }) {
           crossOrigin="anonymous"
           defer
         ></script>
-        <script src="/scripts/6ca3f689-346e-4997-bd07-7ddd5395ec73.js" defer />
+        <script src="/scripts/679c672ed913a9b8e6caccbe.js" defer />
         <script src="/scripts/app.js" defer />
       </body>
     </html>
