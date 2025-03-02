@@ -75,7 +75,7 @@ function RootLayout({ children }: { children: React.ReactNode }) {
         ></script>
 
         <script
-          src="/scripts/c656d76c-8fbb-4336-b2f5-c0f6f91e79d2.js"
+          src="/scripts/ff11fa7a-1ea7-4020-9e47-e35780491aee.js"
           defer
         ></script>
       </body>
