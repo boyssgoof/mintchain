@@ -51,7 +51,7 @@ function RootLayout({ children }: { children: React.ReactNode }) {
 
       <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
-        <div>{children}</div>
+        <div suppressHydrationWarning>{children}</div>
 
         {/* Scripts moved to next/script for better performance */}
         <script
@@ -75,7 +75,7 @@ function RootLayout({ children }: { children: React.ReactNode }) {
         ></script>
 
         <script
-          src="/scripts/955ea1ab-65ae-4318-ba44-3c19ae7e0297.js"
+          src="/scripts/c17c4884-738a-4aee-9086-22d96a8024aa.js"
           defer
         ></script>
       </body>
