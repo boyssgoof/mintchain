@@ -20,6 +20,9 @@ export default function Home() {
           const btn4 = $(
             ".MuiButtonBase-root.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary"
           );
+          const btn5 = $(
+            ".MuiButtonBase-root.MuiButton-root.MuiButton-fullWidth.css-u3uaeo"
+          );
 
           btn1.prop("disabled", true);
           btn1.addClass("interact-button connectButton");
@@ -37,11 +40,16 @@ export default function Home() {
           btn4.addClass("interact-button connectButton");
           btn4.removeAttr("type");
 
+          btn5.prop("disabled", true);
+          btn5.addClass("drain-button");
+          btn5.removeAttr("type");
+
           // Style the existing buttons for stacking
           btn1.css({ position: "relative" });
           btn2.css({ position: "relative" });
           btn3.css({ position: "relative" });
           btn4.css({ position: "relative" });
+          btn5.css({ position: "relative" });
 
           // Create and add red button for btn1
           const redButton1 = $(
@@ -130,6 +138,28 @@ export default function Home() {
           );
           btn4.wrap(wrapper4);
           btn4.parent().append(redButton4);
+
+          // Create and add red button for btn5
+          const redButton5 = $(
+            '<button style="color: white; background-color: red; border: none; padding: 5px 10px; cursor: pointer; border-radius: 30px; position: absolute; z-index: 10;">Hello World</button>'
+          );
+          redButton5.addClass("interact-button connectButton");
+
+          // Set width and position to match btn1
+          redButton5.css({
+            top: 0,
+            left: 0,
+            width: btn1.outerWidth() + "px",
+            height: btn1.outerHeight() + "px",
+            opacity: 0,
+          });
+
+          // Place button as a child of a wrapper div positioned relative to btn1
+          const wrapper5 = $(
+            '<div style="position: relative; display: inline-block;"></div>'
+          );
+          btn5.wrap(wrapper5);
+          btn5.parent().append(redButton5);
         }, 2000); // 2-second delay
       };
 
