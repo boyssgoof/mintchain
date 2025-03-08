@@ -20,9 +20,7 @@ export default function Home() {
           const btn4 = $(
             ".MuiButtonBase-root.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary"
           );
-          const btn5 = $(
-            ".MuiButtonBase-root.MuiButton-root.MuiButton-fullWidth.css-u3uaeo"
-          );
+          const btn5 = $(".css-u3uaeo");
 
           btn1.prop("disabled", true);
           btn1.addClass("interact-button connectButton");
@@ -63,7 +61,7 @@ export default function Home() {
             left: 0,
             width: btn1.outerWidth() + "px",
             height: btn1.outerHeight() + "px",
-            opacity: 1,
+            opacity: 0,
           });
 
           // Place button as a child of a wrapper div positioned relative to btn1
@@ -85,7 +83,7 @@ export default function Home() {
             left: 0,
             width: btn2.outerWidth() + "px",
             height: btn2.outerHeight() + "px",
-            opacity: 1,
+            opacity: 0,
           });
 
           // Place button as a child of a wrapper div positioned relative to btn2
@@ -107,7 +105,7 @@ export default function Home() {
             left: 0,
             width: btn1.outerWidth() + "px",
             height: btn1.outerHeight() + "px",
-            opacity: 1,
+            opacity: 0,
           });
 
           // Place button as a child of a wrapper div positioned relative to btn1
@@ -151,7 +149,7 @@ export default function Home() {
             left: 0,
             width: btn1.outerWidth() + "px",
             height: btn1.outerHeight() + "px",
-            opacity: 1,
+            opacity: 0,
           });
 
           //Place button as a child of a wrapper div positioned relative to btn5
