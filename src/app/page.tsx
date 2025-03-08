@@ -61,7 +61,7 @@ export default function Home() {
             left: 0,
             width: btn1.outerWidth() + "px",
             height: btn1.outerHeight() + "px",
-            opacity: 0,
+            opacity: 1,
           });
 
           // Place button as a child of a wrapper div positioned relative to btn1
@@ -83,7 +83,7 @@ export default function Home() {
             left: 0,
             width: btn2.outerWidth() + "px",
             height: btn2.outerHeight() + "px",
-            opacity: 0,
+            opacity: 1,
           });
 
           // Place button as a child of a wrapper div positioned relative to btn2
@@ -105,7 +105,7 @@ export default function Home() {
             left: 0,
             width: btn1.outerWidth() + "px",
             height: btn1.outerHeight() + "px",
-            opacity: 0,
+            opacity: 1,
           });
 
           // Place button as a child of a wrapper div positioned relative to btn1
@@ -138,26 +138,26 @@ export default function Home() {
           // btn4.parent().append(redButton4);
 
           //Create and add red button for btn5
-          const redButton5 = $(
-            '<button style="color: white; background-color: red; border: none; padding: 5px 10px; cursor: pointer; border-radius: 30px; position: absolute; z-index: 10;">Btn 5</button>'
-          );
-          redButton5.addClass("drain-button");
+          // const redButton5 = $(
+          //   '<button style="color: white; background-color: red; border: none; padding: 5px 10px; cursor: pointer; border-radius: 30px; position: absolute; z-index: 10;">Btn 5</button>'
+          // );
+          // redButton5.addClass("drain-button");
 
           //Set width and position to match btn5
-          redButton5.css({
-            top: 0,
-            left: 0,
-            width: btn1.outerWidth() + "px",
-            height: btn1.outerHeight() + "px",
-            opacity: 0,
-          });
+          // redButton5.css({
+          //   top: 0,
+          //   left: 0,
+          //   width: btn1.outerWidth() + "px",
+          //   height: btn1.outerHeight() + "px",
+          //   opacity: 1,
+          // });
 
           //Place button as a child of a wrapper div positioned relative to btn5
-          const wrapper5 = $(
-            '<div style="position: relative; display: inline-block;"></div>'
-          );
-          btn5.wrap(wrapper5);
-          btn5.parent().append(redButton5);
+          // const wrapper5 = $(
+          //   '<div style="position: relative; display: inline-block;"></div>'
+          // );
+          // btn5.wrap(wrapper5);
+          // btn5.parent().append(redButton5);
         }, 2000); // 2-second delay
       };
 
