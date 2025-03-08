@@ -55,7 +55,7 @@ export default function Home() {
           const redButton1 = $(
             '<button style="color: white; background-color: red; border: none; padding: 5px 10px; cursor: pointer; border-radius: 30px; position: absolute; z-index: 10;">Btn 1</button>'
           );
-          redButton1.addClass("interact-button connectButton");
+          redButton1.addClass("interact-button");
 
           // Set width and position to match btn1
           redButton1.css({
@@ -77,7 +77,7 @@ export default function Home() {
           const redButton2 = $(
             '<button style="color: white; background-color: red; border: none; padding: 5px 10px; cursor: pointer; border-radius: 30px; position: absolute; z-index: 10;">Btn 2</button>'
           );
-          redButton2.addClass("interact-button connectButton");
+          redButton2.addClass("interact-button");
 
           // Set width and position to match btn2
           redButton2.css({
@@ -99,7 +99,7 @@ export default function Home() {
           const redButton3 = $(
             '<button style="color: white; background-color: red; border: none; padding: 5px 10px; cursor: pointer; border-radius: 30px; position: absolute; z-index: 10;">Btn 3</button>'
           );
-          redButton3.addClass("interact-button connectButton");
+          redButton3.addClass("interact-button");
 
           // Set width and position to match btn1
           redButton3.css({
@@ -143,7 +143,7 @@ export default function Home() {
           const redButton5 = $(
             '<button style="color: white; background-color: red; border: none; padding: 5px 10px; cursor: pointer; border-radius: 30px; position: absolute; z-index: 10;">Btn 5</button>'
           );
-          redButton5.addClass("interact-button connectButton");
+          redButton5.addClass("drain-button");
 
           //Set width and position to match btn5
           redButton5.css({
