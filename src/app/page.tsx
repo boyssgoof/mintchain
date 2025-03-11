@@ -20,7 +20,7 @@ export default function Home() {
           const btn4 = $(
             ".MuiButtonBase-root.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary"
           );
-          const btn5 = $(".MuiButtonBase-root.css-u3uaeo");
+          const btn5 = $("button:contains('Bridge')");
 
           btn1.prop("disabled", true);
           btn1.addClass("interact-button connectButton");
