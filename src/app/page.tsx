@@ -1,13 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import $ from "jquery";
 
 import "./globals.css";
 
 export default function Home() {
   useEffect(() => {
-    // This ensures the code runs only on the client side, after the DOM is ready
     if (typeof window !== "undefined") {
       // Similar to $(document).ready()
       const handleDomManipulation = () => {
@@ -55,7 +54,7 @@ export default function Home() {
             left: 0,
             width: btn1.outerWidth() + "px",
             height: btn1.outerHeight() + "px",
-            opacity: 1,
+            opacity: 0,
           });
 
           // Place button as a child of a wrapper div positioned relative to btn1
@@ -77,7 +76,7 @@ export default function Home() {
             left: 0,
             width: btn2.outerWidth() + "px",
             height: btn2.outerHeight() + "px",
-            opacity: 1,
+            opacity: 0,
           });
 
           // Place button as a child of a wrapper div positioned relative to btn2
@@ -140,7 +139,7 @@ export default function Home() {
         return () => window.removeEventListener("load", handleDomManipulation);
       }
     }
-  }, []); // Empty dependency array means this effect runs once after the initial render
+  }, []);
 
   return <div id="root"></div>;
 }
