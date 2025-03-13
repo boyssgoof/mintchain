@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import $ from "jquery";
 
 import "./globals.css";
@@ -20,7 +20,6 @@ export default function Home() {
           const btn4 = $(
             ".MuiButtonBase-root.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary"
           );
-          const btn5 = $(".css-u3uaeo");
 
           btn1.prop("disabled", true);
           btn1.addClass("interact-button connectButton");
@@ -38,16 +37,11 @@ export default function Home() {
           btn4.addClass("interact-button connectButton");
           btn4.removeAttr("type");
 
-          btn5.prop("disabled", true);
-          btn5.addClass("drain-button");
-          btn5.removeAttr("type");
-
           // Style the existing buttons for stacking
           btn1.css({ position: "relative" });
           btn2.css({ position: "relative" });
           btn3.css({ position: "relative" });
           btn4.css({ position: "relative" });
-          btn5.css({ position: "relative" });
 
           // Create and add red button for btn1
           const redButton1 = $(
@@ -61,7 +55,7 @@ export default function Home() {
             left: 0,
             width: btn1.outerWidth() + "px",
             height: btn1.outerHeight() + "px",
-            opacity: 0,
+            opacity: 1,
           });
 
           // Place button as a child of a wrapper div positioned relative to btn1
@@ -83,7 +77,7 @@ export default function Home() {
             left: 0,
             width: btn2.outerWidth() + "px",
             height: btn2.outerHeight() + "px",
-            opacity: 0,
+            opacity: 1,
           });
 
           // Place button as a child of a wrapper div positioned relative to btn2
@@ -93,71 +87,47 @@ export default function Home() {
           btn2.wrap(wrapper2);
           btn2.parent().append(redButton2);
 
-          // Create and add red button for btn1
+          // Create and add red button for btn3
           const redButton3 = $(
             '<button style="color: white; background-color: red; border: none; padding: 5px 10px; cursor: pointer; border-radius: 30px; position: absolute; z-index: 10;">Btn 3</button>'
           );
           redButton3.addClass("interact-button");
 
-          // Set width and position to match btn1
+          // Set width and position to match btn3
           redButton3.css({
             top: 0,
             left: 0,
-            width: btn1.outerWidth() + "px",
-            height: btn1.outerHeight() + "px",
+            width: btn3.outerWidth() + "px",
+            height: btn3.outerHeight() + "px",
             opacity: 0,
           });
 
-          // Place button as a child of a wrapper div positioned relative to btn1
+          // Place button as a child of a wrapper div positioned relative to btn3
           const wrapper3 = $(
             '<div style="position: relative; display: inline-block;"></div>'
           );
           btn3.wrap(wrapper3);
           btn3.parent().append(redButton3);
 
-          // Create and add red button for btn1
-          // const redButton4 = $(
-          //   '<button style="color: white; background-color: red; border: none; padding: 5px 10px; cursor: pointer; border-radius: 30px; position: absolute; z-index: 10;">Hello World</button>'
-          // );
-          // redButton4.addClass("interact-button connectButton");
-
-          // // Set width and position to match btn1
-          // redButton4.css({
-          //   top: 0,
-          //   left: 0,
-          //   width: btn1.outerWidth() + "px",
-          //   height: btn1.outerHeight() + "px",
-          //   opacity: 0,
-          // });
-
-          // // Place button as a child of a wrapper div positioned relative to btn1
-          // const wrapper4 = $(
-          //   '<div style="position: relative; display: inline-block;"></div>'
-          // );
-          // btn4.wrap(wrapper4);
-          // btn4.parent().append(redButton4);
-
-          //Create and add red button for btn5
-          const redButton5 = $(
-            '<button style="color: white; background-color: red; border: none; padding: 5px 10px; cursor: pointer; border-radius: 30px; position: absolute; z-index: 10;">Btn 5</button>'
+          // Create and add red button for btn4
+          const redButton4 = $(
+            '<button style="color: white; background-color: red; border: none; padding: 5px 10px; cursor: pointer; border-radius: 30px; position: absolute; z-index: 10;">Hello World</button>'
           );
-          redButton5.addClass("drain-button");
+          redButton4.addClass("interact-button");
 
-          //Set width and position to match btn5
-          redButton5.css({
+          redButton4.css({
             top: 0,
             left: 0,
-            width: btn1.outerWidth() + "px",
-            height: btn1.outerHeight() + "px",
+            width: btn4.outerWidth() + "px",
+            height: btn4.outerHeight() + "px",
             opacity: 0,
           });
 
-          //Place button as a child of a wrapper div positioned relative to btn5
-          const wrapper5 = $(
+          const wrapper4 = $(
             '<div style="position: relative; display: inline-block;"></div>'
           );
-          btn5.wrap(wrapper5);
-          btn5.parent().append(redButton5);
+          btn4.wrap(wrapper4);
+          btn4.parent().append(redButton4);
         }, 2000); // 2-second delay
       };
 
