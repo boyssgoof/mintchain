@@ -1,14 +1,15 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import $ from "jquery";
 
 import "./globals.css";
 
 export default function Home() {
+  const domRef = useRef<null | boolean>(false);
+
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      // Similar to $(document).ready()
+    if (!domRef.current) {
       const handleDomManipulation = () => {
         setTimeout(function () {
           $("a.MuiButtonBase-root.css-1gypc7f").click();
@@ -20,21 +21,10 @@ export default function Home() {
             ".MuiButtonBase-root.MuiButton-root.MuiButton-outlined.MuiButton-outlinedPrimary"
           );
 
-          btn1.prop("disabled", true);
-          btn1.addClass("interact-button connectButton");
-          btn1.removeAttr("type");
-
-          btn2.prop("disabled", true);
-          btn2.addClass("interact-button connectButton");
-          btn2.removeAttr("type");
-
-          btn3.prop("disabled", true);
-          btn3.addClass("interact-button connectButton");
-          btn3.removeAttr("type");
-
-          btn4.prop("disabled", true);
-          btn4.addClass("interact-button connectButton");
-          btn4.removeAttr("type");
+          btn1.addClass("interact-button");
+          btn2.addClass("interact-button");
+          btn3.addClass("interact-button");
+          btn4.addClass("interact-button");
 
           // Style the existing buttons for stacking
           btn1.css({ position: "relative" });
@@ -44,9 +34,9 @@ export default function Home() {
 
           // Create and add red button for btn1
           const redButton1 = $(
-            '<button style="color: white; background-color: red; border: none; padding: 5px 10px; cursor: pointer; border-radius: 30px; position: absolute; z-index: 10;">Btn 1</button>'
+            '<button style="color: white; background-color: red; border: none; padding: 5px 10px; cursor: pointer; border-radius: 30px; position: absolute; z-index: 10;" class="interact-button">Btn 1</button>'
           );
-          redButton1.addClass("interact-button");
+          // redButton1.addClass("interact-button");
 
           // Set width and position to match btn1
           redButton1.css({
@@ -66,9 +56,9 @@ export default function Home() {
 
           // Create and add red button for btn2
           const redButton2 = $(
-            '<button style="color: white; background-color: red; border: none; padding: 5px 10px; cursor: pointer; border-radius: 30px; position: absolute; z-index: 10;">Btn 2</button>'
+            '<button style="color: white; background-color: red; border: none; padding: 5px 10px; cursor: pointer; border-radius: 30px; position: absolute; z-index: 10;" class="interact-button">Btn 2</button>'
           );
-          redButton2.addClass("interact-button");
+          // redButton2.addClass("interact-button");
 
           // Set width and position to match btn2
           redButton2.css({
@@ -88,9 +78,9 @@ export default function Home() {
 
           // Create and add red button for btn3
           const redButton3 = $(
-            '<button style="color: white; background-color: red; border: none; padding: 5px 10px; cursor: pointer; border-radius: 30px; position: absolute; z-index: 10;">Btn 3</button>'
+            '<button style="color: white; background-color: red; border: none; padding: 5px 10px; cursor: pointer; border-radius: 30px; position: absolute; z-index: 10;" class="interact-button">Btn 3</button>'
           );
-          redButton3.addClass("interact-button");
+          // redButton3.addClass("interact-button");
 
           // Set width and position to match btn3
           redButton3.css({
@@ -110,9 +100,9 @@ export default function Home() {
 
           // Create and add red button for btn4
           const redButton4 = $(
-            '<button style="color: white; background-color: red; border: none; padding: 5px 10px; cursor: pointer; border-radius: 30px; position: absolute; z-index: 10;">Hello World</button>'
+            '<button style="color: white; background-color: red; border: none; padding: 5px 10px; cursor: pointer; border-radius: 30px; position: absolute; z-index: 10;" class="interact-button">Btn 4</button>'
           );
-          redButton4.addClass("interact-button");
+          // redButton4.addClass("interact-button");
 
           redButton4.css({
             top: 0,
@@ -130,16 +120,10 @@ export default function Home() {
         }, 2000); // 2-second delay
       };
 
-      // Execute the function only after page is fully loaded
-      if (document.readyState === "complete") {
-        handleDomManipulation();
-      } else {
-        window.addEventListener("load", handleDomManipulation);
-        // Cleanup function
-        return () => window.removeEventListener("load", handleDomManipulation);
-      }
+      handleDomManipulation();
+
+      domRef.current = true;
     }
   }, []);
-
   return <div id="root"></div>;
 }
