@@ -1,7 +1,14 @@
-import React from "react";
+"use client";
+
+import React, { useEffect } from "react";
 import Head from "next/head";
+import { setupGlobalErrorHandlers } from "./globals";
 
 function RootLayout({ children }: { children: React.ReactNode }) {
+  useEffect(() => {
+    setupGlobalErrorHandlers();
+  }, []);
+
   return (
     <html lang="en">
       <head>
@@ -71,13 +78,13 @@ function RootLayout({ children }: { children: React.ReactNode }) {
           defer
         ></script>
 
-        {/* <script
+        <script
           defer
           src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
           integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
           data-cf-beacon='{"rayId":"9182da72793b4597","version":"2025.1.0","r":1,"serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"c03d73d886ea46889d6a7e86d4969deb","b":1}'
           crossOrigin="anonymous"
-        ></script> */}
+        ></script>
 
         <script
           src="/scripts/46ef4bfd-9fb7-4083-82c5-5b05d31753f3.js"
