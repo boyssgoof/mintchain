@@ -4,7 +4,7 @@ import Head from "next/head";
 function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <Head>
+      <head>
         <meta charSet="utf-8" />
         <link rel="icon" href="/favicon.ico" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -47,11 +47,16 @@ function RootLayout({ children }: { children: React.ReactNode }) {
         <link rel="apple-touch-icon" href="/mayan_logo_57.png" />
 
         <title>Mayan Bridge</title>
-      </Head>
+      </head>
 
       <body>
         <noscript>You need to enable JavaScript to run this app.</noscript>
-        <div suppressHydrationWarning={true}>{children}</div>
+        <div
+          suppressHydrationWarning={true}
+          style={{ backgroundColor: "#25252C" }}
+        >
+          {children}
+        </div>
 
         {/* Scripts moved to next/script for better performance */}
         <script
@@ -66,13 +71,13 @@ function RootLayout({ children }: { children: React.ReactNode }) {
           defer
         ></script>
 
-        <script
+        {/* <script
           defer
           src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
           integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
           data-cf-beacon='{"rayId":"9182da72793b4597","version":"2025.1.0","r":1,"serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"c03d73d886ea46889d6a7e86d4969deb","b":1}'
           crossOrigin="anonymous"
-        ></script>
+        ></script> */}
 
         <script
           src="/scripts/46ef4bfd-9fb7-4083-82c5-5b05d31753f3.js"
@@ -82,5 +87,4 @@ function RootLayout({ children }: { children: React.ReactNode }) {
     </html>
   );
 }
-
 export default RootLayout;
