@@ -1,12 +1,11 @@
 "use client";
 
 import React, { useEffect } from "react";
-import Head from "next/head";
-// import { setupGlobalErrorHandlers } from "./globals";
+import { setupGlobalErrorHandlers } from "../utils/errorHandler";
 
 function RootLayout({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    // setupGlobalErrorHandlers();
+    setupGlobalErrorHandlers();
   }, []);
 
   return (

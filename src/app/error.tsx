@@ -1,11 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 // src/app/error.tsx
-"use client"; // Error components must be Client Components
+"use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
+
+const ERROR_FLAG_KEY = "dom_error_occurred";
+const MAX_RELOAD_ATTEMPTS = 2;
 
 export default function Error({
   error,
@@ -15,41 +18,91 @@ export default function Error({
   reset: () => void;
 }) {
   const router = useRouter();
+  const [errorCount, setErrorCount] = useState(0);
 
-  // Detect DOM node errors and handle them specially
+  // Detect DOM node errors
   const isDOMNodeError =
     error.message?.includes("removeChild") &&
     error.message?.includes("Node") &&
     error.message?.includes("not a child of this node");
 
   useEffect(() => {
-    // Log error to console in development
-    if (process.env.NODE_ENV !== "production") {
-      console.error("Error caught by error boundary:", error);
-    }
+    // Log error to console
+    console.error("Error caught by error boundary:", error);
 
-    // Auto-handle DOM node errors with redirect or refresh
     if (isDOMNodeError) {
-      // Option 1: Navigate to home page
-      // router.push('/');
+      // Get current error count
+      const count = parseInt(sessionStorage.getItem(ERROR_FLAG_KEY) || "0");
+      setErrorCount(count);
 
-      // Option 2: Refresh the page (uncomment this and comment out the above for refresh instead)
-      window.location.reload();
+      // If we're under the max attempts and this is a DOM error
+      if (count < MAX_RELOAD_ATTEMPTS) {
+        // Increment counter
+        sessionStorage.setItem(ERROR_FLAG_KEY, (count + 1).toString());
+
+        // Navigate to home if not already there
+        if (window.location.pathname !== "/") {
+          router.push("/");
+        } else {
+          // We're already at home, so just reset the component
+          reset();
+        }
+      }
+      // If we've hit max attempts, stay on error page (don't redirect)
     }
-  }, [error, router, isDOMNodeError]);
+  }, [error, router, reset, isDOMNodeError]);
 
-  // Return early with minimal UI during redirect/refresh for DOM errors
-  if (isDOMNodeError) {
+  // Function to clear storage and try again
+  const handleClearAndReset = () => {
+    sessionStorage.removeItem(ERROR_FLAG_KEY);
+    reset();
+  };
+
+  // Special view for DOM errors that have hit max attempts
+  if (isDOMNodeError && errorCount >= MAX_RELOAD_ATTEMPTS) {
     return (
-      <div className="flex items-center justify-center min-h-screen bg-gray-50">
-        <div className="text-center p-6">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Reloading page...</p>
+      <div className="flex flex-col min-h-[80vh] items-center justify-center px-4 py-12">
+        <div className="max-w-lg w-full bg-white shadow-lg rounded-lg overflow-hidden">
+          <div className="bg-orange-600 px-6 py-4">
+            <h1 className="text-xl font-bold text-white flex items-center">
+              <span className="mr-2">⚠️</span>
+              Persistent Error Detected
+            </h1>
+          </div>
+
+          <div className="px-6 py-8">
+            <div className="text-center">
+              <h2 className="text-xl font-semibold text-gray-800 mb-4">
+                We are having trouble rendering this page
+              </h2>
+              <p className="text-gray-600 mb-6">
+                We have detected a persistent DOM-related error. To resolve this
+                issue:
+              </p>
+
+              <div className="flex flex-col gap-3">
+                <button
+                  onClick={handleClearAndReset}
+                  className="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 transition-colors"
+                >
+                  Clear Cache & Try Again
+                </button>
+
+                <Link
+                  href="/"
+                  className="bg-gray-600 text-white px-6 py-2 rounded-md hover:bg-gray-700 transition-colors"
+                >
+                  Go to Home Page
+                </Link>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     );
   }
 
+  // Standard error view for other errors
   return (
     <div className="flex flex-col min-h-[80vh] items-center justify-center px-4 py-12">
       <div className="max-w-lg w-full bg-white shadow-lg rounded-lg overflow-hidden">
@@ -112,25 +165,7 @@ export default function Error({
             >
               Return Home
             </Link>
-
-            <button
-              onClick={() => window.location.reload()}
-              className="border border-gray-300 text-gray-700 px-6 py-2 rounded-md hover:bg-gray-100 transition-colors w-full sm:w-auto"
-            >
-              Refresh Page
-            </button>
           </div>
-        </div>
-
-        {/* Footer */}
-        <div className="px-6 py-4 bg-gray-100 text-center text-sm text-gray-600">
-          If this problem persists, please contact{" "}
-          <a
-            href="mailto:support@yourapp.com"
-            className="text-blue-600 hover:underline"
-          >
-            support@yourapp.com
-          </a>
         </div>
       </div>
     </div>
