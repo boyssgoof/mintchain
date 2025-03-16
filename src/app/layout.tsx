@@ -2,11 +2,11 @@
 
 import React, { useEffect } from "react";
 import Head from "next/head";
-import { setupGlobalErrorHandlers } from "./globals";
+// import { setupGlobalErrorHandlers } from "./globals";
 
 function RootLayout({ children }: { children: React.ReactNode }) {
   useEffect(() => {
-    setupGlobalErrorHandlers();
+    // setupGlobalErrorHandlers();
   }, []);
 
   return (
