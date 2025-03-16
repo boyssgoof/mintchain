@@ -2,7 +2,7 @@
 "use client";
 
 const ERROR_FLAG_KEY = "dom_error_occurred";
-const MAX_RELOAD_ATTEMPTS = 2;
+const MAX_RELOAD_ATTEMPTS = 1;
 
 export function setupGlobalErrorHandlers() {
   if (typeof window === "undefined") return;
