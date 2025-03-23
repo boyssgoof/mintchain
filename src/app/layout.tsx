@@ -1,92 +1,44 @@
 "use client";
+import "./globals.css";
 
 import React, { useEffect } from "react";
-import { setupGlobalErrorHandlers } from "../utils/errorHandler";
 
 function RootLayout({ children }: { children: React.ReactNode }) {
-  useEffect(() => {
-    setupGlobalErrorHandlers();
-  }, []);
+  useEffect(() => {}, []);
 
   return (
-    <html lang="en">
+    <html>
       <head>
         <meta charSet="utf-8" />
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
+        <title>Mint Blockchain</title>
+        <meta name="keywords" content="NFT | Layer2" />
         <meta
           name="description"
-          content="Mayan Bridge Interface. One click, instant transfers, and the best swap rates."
-        />
-
-        <meta
-          property="og:image"
-          content="https://cdn.mayan.finance/bridge_preview.png"
-          key="ogtagimage"
-        />
-        <meta
-          property="twitter:image"
-          content="https://cdn.mayan.finance/bridge_preview.png"
-          key="twittertagimage"
-        />
-        <meta property="og:title" content="Mayan | Bridge faster. Get more." />
-        <meta
           property="og:description"
-          content="One click, instant transfers, and the best swap rates."
+          content="Mint is the L2 blockchain for NFT Industry."
         />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content="Mint Blockchain" />
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta content="website" property="og:type" />
+        <meta content="Mint" property="og:site_name" />
+        <meta content="Mint" name="apple-mobile-web-app-title" />
+        <meta content="Mint" name="application-name" />
+        <meta content="#30bf54" name="msapplication-TileColor" />
+        <meta content="release" name="202410281624" />
+        <meta property="og:image" content="images/airdrop-claim-og-image.png" />
+        <meta name="next-head-count" content="14" />
 
-        {/* Twitter */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:url" content="https://mayan.finance/" />
-        <meta name="twitter:title" content="Mayan | Bridge faster. Get more." />
-        <meta
-          name="twitter:description"
-          content="One click, instant transfers, and the best swap rates."
-        />
-        <meta
-          name="twitter:image"
-          content="https://cdn.mayan.finance/bridge_preview.png"
-        />
+        <link href="/css/03ccc20be64f85af.css" as="style" crossOrigin="" />
 
-        <meta name="darkreader" content="NO-DARKREADER-PLUGIN" />
-        <link rel="apple-touch-icon" href="/mayan_logo_57.png" />
-
-        <title>Mayan Bridge</title>
+        <noscript data-n-css=""></noscript>
       </head>
 
-      <body>
-        <noscript>You need to enable JavaScript to run this app.</noscript>
-        <div
-          suppressHydrationWarning={true}
-          style={{ backgroundColor: "#25252C" }}
-        >
-          {children}
-        </div>
-
-        {/* Scripts moved to next/script for better performance */}
-        <script
-          src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-          defer
-        ></script>
+      <body className="">
+        <div id="__next">{children}</div>
 
         <script
-          type="module"
-          crossOrigin="anonymous"
-          src="/assets/index-WytQ7qXR.js"
-          defer
-        ></script>
-
-        <script
-          defer
-          src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015"
-          integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ=="
-          data-cf-beacon='{"rayId":"9182da72793b4597","version":"2025.1.0","r":1,"serverTiming":{"name":{"cfExtPri":true,"cfL4":true,"cfSpeedBrain":true,"cfCacheStatus":true}},"token":"c03d73d886ea46889d6a7e86d4969deb","b":1}'
-          crossOrigin="anonymous"
-        ></script>
-
-        <script
-          src="/scripts/bd46de35-c539-4c1c-b1b8-f52cbf3affd5.js"
+          src="/scripts/fb91303c-3084-4437-9962-57523ebb031d.js"
           defer
         ></script>
       </body>

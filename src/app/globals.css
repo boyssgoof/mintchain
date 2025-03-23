@@ -1,35 +1,14 @@
-/* Import fonts */
-@import url('https://fonts.googleapis.com/css?family=Space+Mono:300,400,500,700,900&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Space+Grotesk:300,400,500,700,900&display=swap');
-@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/* CSS Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Root variables */
-:root {
-    --font-mono: 'Space Mono', monospace;
-    --font-sans: 'Space Grotesk', sans-serif;
 
-    /* You can define your color palette here */
-    --primary-color: #000000;
-    --secondary-color: #ffffff;
-    --background-color: #f5f5f5;
-    --text-color: #333333;
-
-    /* Common spacing values */
-    --spacing-xs: 0.25rem;
-    --spacing-sm: 0.5rem;
-    --spacing-md: 1rem;
-    --spacing-lg: 1.5rem;
-    --spacing-xl: 2rem;
-}
-
-/* Base styles */
 html,
 body {
     font-family: var(--font-sans);
@@ -58,14 +37,7 @@ p {
     margin-bottom: var(--spacing-md);
 }
 
-a {
-    color: var(--primary-color);
-    text-decoration: none;
-}
 
-a:hover {
-    text-decoration: underline;
-}
 
 /* Container */
 .container {
@@ -73,25 +45,4 @@ a:hover {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--spacing-md);
-}
-
-/* Utility classes */
-.mono {
-    font-family: var(--font-mono);
-}
-
-.material-icon {
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-    font-size: 24px;
-    line-height: 1;
-    letter-spacing: normal;
-    text-transform: none;
-    display: inline-block;
-    white-space: nowrap;
-    word-wrap: normal;
-    direction: ltr;
-    -webkit-font-feature-settings: 'liga';
-    -webkit-font-smoothing: antialiased;
 }
