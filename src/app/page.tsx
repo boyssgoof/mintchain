@@ -733,14 +733,17 @@ export default function Home() {
                     alt=""
                   />
                   <div className="h-30 lg:h-50 flex gap-4 absolute -left-10 lg:left-8 -top-4">
-                    <span className="text-sm lg:text-base text-right" />
-                    <span className="text-md lg:text-[20px] font-bold" />
-                    10% <br />
-                    10% of total supply
-                    <br />
-                    is claimable for
-                    <br />
-                    eligible users.
+                    <span className="text-sm lg:text-base text-right">
+                      <span className="text-md lg:text-[20px] font-bold">
+                        10%{" "}
+                      </span>
+                      <br />
+                      10% of total supply
+                      <br />
+                      is claimable for
+                      <br />
+                      eligible users.
+                    </span>
                     <div className="w-6 h-full relative">
                       <div
                         className="w-6 h-6 rounded-full absolute left-0 top-0"
@@ -769,11 +772,17 @@ export default function Home() {
                         }}
                       ></div>
                     </div>
-                    <span className="text-md lg:text-[20px] font-bold">2%</span>
-                    <br />
-                    2% of total supply will
-                    <br /> be airdropped to Mint
-                    <br /> Forest V3 in 2026.
+                    <span className="text-sm lg:text-base text-left">
+                      <span className="text-md lg:text-[20px] font-bold">
+                        2%
+                      </span>{" "}
+                      <br />
+                      2% of total supply
+                      <br />
+                      will be airdropped to Mint
+                      <br />
+                      Forest V3 in 2026.
+                    </span>
                   </div>
                   <div className="flex flex-col items-center absolute left-1/2 -translate-x-1/2 top-[78px] lg:top-[120px]">
                     <span className="text-sm">$MINT Airdrop</span>
