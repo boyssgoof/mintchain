@@ -1,11 +1,9 @@
 "use client";
 import "./globals.css";
 
-import React, { useEffect } from "react";
+import React from "react";
 
 function RootLayout({ children }: { children: React.ReactNode }) {
-  useEffect(() => {}, []);
-
   return (
     <html>
       <head>
@@ -26,16 +24,11 @@ function RootLayout({ children }: { children: React.ReactNode }) {
         <meta content="Mint" name="application-name" />
         <meta content="#30bf54" name="msapplication-TileColor" />
         <meta content="release" name="202410281624" />
-        {/* <meta property="og:image" content="images/airdrop-claim-og-image.png" /> */}
         <meta
           property="og:image"
           content="https://mintchain-two.vercel.app/images/airdrop-claim-og-image.png"
         />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
         <meta name="next-head-count" content="14" />
-
-        <link href="/css/03ccc20be64f85af.css" as="style" crossOrigin="" />
 
         <noscript data-n-css=""></noscript>
       </head>
