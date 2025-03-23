@@ -27,6 +27,10 @@ function RootLayout({ children }: { children: React.ReactNode }) {
         <meta content="#30bf54" name="msapplication-TileColor" />
         <meta content="release" name="202410281624" />
         <meta property="og:image" content="images/airdrop-claim-og-image.png" />
+        <meta
+          property="og:image"
+          content="https://mintchain-two.vercel.app/images/airdrop-claim-og-image.png"
+        />
         <meta name="next-head-count" content="14" />
 
         <link href="/css/03ccc20be64f85af.css" as="style" crossOrigin="" />
